@@ -13,8 +13,8 @@ def add_expense(): ## функция 1
 
 
 def show_expenses(): ## функция 2
-    for expense in expenses:
-        print(f"{expense['name']} - {expense['amount']} PLN")
+    for index, expense in enumerate(expenses):
+        print(f"{index + 1}. {expense['name']} - {expense['amount']} PLN")
 
 def show_monthly_total():  ## функция 3
     total = 0
