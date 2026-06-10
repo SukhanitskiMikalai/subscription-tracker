@@ -11,7 +11,6 @@ def add_expense(): ## функция 1
 
     expenses.append(expense)
 
-
 def show_expenses(): ## функция 2
     for index, expense in enumerate(expenses):
         print(f"{index + 1}. {expense['name']} - {expense['amount']} PLN")
@@ -24,12 +23,20 @@ def show_monthly_total():  ## функция 3
 
     print(f"Monthly total: {total} PLN")
 
- 
+def delete_expense():
+    show_expenses()
+    
+    number = int(input("Ente expense number: "))
+    index = number - 1
+
+    expenses.pop(index)
+
 while True:
     print("\n=== Subscription Tracker ===")
     print("1. Add expense")
     print("2. Show expense")
     print("3. Show monthly total")
+    print("4. Delete expense")
     print("0. Exit")
 
     choice = input("Choose an option: ")
@@ -42,7 +49,9 @@ while True:
 
     elif choice == "3":  ## вызов 3-ой функции
         show_monthly_total()
-        
+
+    elif choice == "4":
+        delete_expense()
 
     elif choice == "0":
         break
