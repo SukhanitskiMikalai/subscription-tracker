@@ -25,11 +25,18 @@ def show_monthly_total():  ## функция 3
 
 def delete_expense():
     show_expenses()
-    
+
     number = int(input("Ente expense number: "))
     index = number - 1
 
     expenses.pop(index)
+
+def search_expense():
+    search = input("Search: ")
+
+    for expense in expenses:
+        if search.lower() in expense["name"].lower():
+            print(f"{expense['name']} - {expense['amount']} PLN")
 
 while True:
     print("\n=== Subscription Tracker ===")
@@ -37,6 +44,7 @@ while True:
     print("2. Show expense")
     print("3. Show monthly total")
     print("4. Delete expense")
+    print("5. Search expense")
     print("0. Exit")
 
     choice = input("Choose an option: ")
@@ -52,6 +60,9 @@ while True:
 
     elif choice == "4":
         delete_expense()
+
+    elif choice == "5":
+        search_expense()
 
     elif choice == "0":
         break
